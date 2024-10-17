@@ -2,7 +2,7 @@ const DB_URI =
   "mongodb+srv://zhiyuzhong:XVlldaK2u9Od6ELb@cluster0.zvjyu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const API =
   process.env.NODE_ENV === "production"
-    ? "https://nextecom-9od382cdd-zhiyus-projects-c87b6705.vercel.app/api"
+    ? "https://freshstarteshop-o8hrfkv0s-zhiyusprojects.vercel.app"
     : "http://localhost:3000/api";
 const NEXTAUTH_SECRET = "c2YgseOPSYxhicyp0l/6WGmQASgjhaQh/H0MskaBre4=";
 const GOOGLE_CLIENT_ID =
