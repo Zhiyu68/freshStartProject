@@ -11,16 +11,28 @@ export default withAuth(
     const url = req.nextUrl.pathname;
     const userRole = req?.nextauth?.token?.user?.role;
 
+    // Check if accessing the admin route without admin privileges
     if (url?.includes("/admin") && userRole !== "admin") {
       return NextResponse.redirect(new URL("/", req.url));
     }
+
+    // Handle CORS headers
+    const resp = NextResponse.next();
+    resp.headers.append("Access-Control-Allow-Credentials", "true");
+    resp.headers.append("Access-Control-Allow-Origin", "*");
+    resp.headers.append(
+      "Access-Control-Allow-Methods",
+      "GET,DELETE,PATCH,POST,PUT"
+    );
+    resp.headers.append("Access-Control-Allow-Headers", "*");
+
+    return resp;
   },
   {
     callbacks: {
       authorized: ({ token }) => {
-        if (!token) {
-          return false;
-        }
+        // Return true if the token exists, otherwise false
+        return !!token;
       },
     },
   }
