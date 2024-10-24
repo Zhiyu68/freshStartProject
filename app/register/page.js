@@ -15,10 +15,23 @@ export default function RegisterPage() {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await fetch(`${process.env.API}/register`, {
+
+      // Determine the API URL based on the environment
+      const apiUrl =
+        process.env.NODE_ENV === "production"
+          ? `${window.location.origin}/api`
+          : "http://localhost:3000/api";
+
+      const response = await fetch(`${apiUrl}/register`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
       });
 
       const data = await response.json();
