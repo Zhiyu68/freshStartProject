@@ -1,0 +1,92 @@
+"use client";
+import { createContext, useState, useEffect, useContext } from "react";
+import toast from "react-hot-toast";
+
+export const CategoryContext = createContext();
+
+export const CategoryProvider = ({ children }) => {
+  // to create a new category
+  const [name, setName] = useState("");
+  // for fetching all categories
+  const [categories, setCategories] = useState([]);
+  // for updating a category
+  const [updatingCategory, setUpdatingCategory] = useState(null);
+
+  const createCategory = async () => {
+    try {
+      const response = await fetch(`${process.env.API}/admin/category`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name }),
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        toast.error(data.err);
+      } else {
+        toast.success("Category created.");
+        setName("");
+        setCategories([data.category, ...categories]);
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error("An error occurred. Please try again.");
+    }
+  };
+
+  const fetchCategories = async () => {
+    try {
+      const response = await fetch(`${process.env.API}/admin/category`);
+      const data = await response.json();
+
+      if (!response.ok) {
+        toast.error(data.err);
+      } else {
+        setCategories(data);
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error("An error occurred. Please try again.");
+    }
+  };
+
+  const updateCategory = async () => {
+    try {
+      //
+    } catch (err) {
+      console.log(err);
+      toast.error("An error occurred. Please try again.");
+    }
+  };
+
+  const deleteCategory = async () => {
+    try {
+      //
+    } catch (err) {
+      console.log(err);
+      toast.error("An error occurred. Please try again.");
+    }
+  };
+  return (
+    <CategoryContext.Provider
+      value={{
+        name,
+        setName,
+        categories,
+        setCategories,
+        updatingCategory,
+        setUpdatingCategory,
+        createCategory,
+        fetchCategories,
+        updateCategory,
+        deleteCategory,
+      }}
+    >
+      {children}
+    </CategoryContext.Provider>
+  );
+};
+
+export const useCategory = () => useContext(CategoryContext);
