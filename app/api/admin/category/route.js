@@ -15,7 +15,9 @@ export async function POST(req) {
     });
     return NextResponse.json(category);
   } catch (err) {
-    return NextResponse.json(err.message, { status: 500 });
+    console.log(err);
+
+    return NextResponse.json(err._message, { status: 500 });
   }
 }
 

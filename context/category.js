@@ -1,15 +1,15 @@
 "use client";
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useContext } from "react";
 import toast from "react-hot-toast";
 
 export const CategoryContext = createContext();
 
 export const CategoryProvider = ({ children }) => {
-  // to create a new category
+  // to create a category
   const [name, setName] = useState("");
   // for fetching all categories
   const [categories, setCategories] = useState([]);
-  // for updating a category
+  // for update and delete
   const [updatingCategory, setUpdatingCategory] = useState(null);
 
   const createCategory = async () => {
@@ -21,18 +21,20 @@ export const CategoryProvider = ({ children }) => {
         },
         body: JSON.stringify({ name }),
       });
+
       const data = await response.json();
 
       if (!response.ok) {
-        toast.error(data.err);
+        // console.log("data.err", data);
+        toast.error(data);
       } else {
-        toast.success("Category created.");
+        toast.success("Category created");
         setName("");
-        setCategories([data.category, ...categories]);
+        setCategories([data, ...categories]);
       }
     } catch (err) {
       console.log(err);
-      toast.error("An error occurred. Please try again.");
+      toast.error("An error occurred. Try again");
     }
   };
 
@@ -42,13 +44,29 @@ export const CategoryProvider = ({ children }) => {
       const data = await response.json();
 
       if (!response.ok) {
-        toast.error(data.err);
+        toast.error(data);
       } else {
         setCategories(data);
       }
     } catch (err) {
       console.log(err);
-      toast.error("An error occurred. Please try again.");
+      toast.error("An error occurred. Try again");
+    }
+  };
+
+  const fetchCategoriesPublic = async () => {
+    try {
+      const response = await fetch(`${process.env.API}/categories`);
+      const data = await response.json();
+
+      if (!response.ok) {
+        toast.error(data);
+      } else {
+        setCategories(data);
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error("An error occurred. Try again");
     }
   };
 
@@ -61,13 +79,14 @@ export const CategoryProvider = ({ children }) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ name }),
+          body: JSON.stringify(updatingCategory),
         }
       );
 
       const data = await response.json();
+
       if (!response.ok) {
-        toast.error(data.err);
+        toast.error(data);
       } else {
         toast.success("Category updated");
         setUpdatingCategory(null);
@@ -80,7 +99,7 @@ export const CategoryProvider = ({ children }) => {
       }
     } catch (err) {
       console.log(err);
-      toast.error("An error occurred. Please try again.");
+      toast.error("An error occurred. Try again");
     }
   };
 
@@ -92,25 +111,24 @@ export const CategoryProvider = ({ children }) => {
           method: "DELETE",
         }
       );
+
       const data = await response.json();
 
       if (!response.ok) {
-        toast.error(data.err);
+        toast.error(data);
       } else {
-        toast.success("Category delited");
-        
+        toast.success("Category deleted");
         setCategories(
-          categories.filter((category) =>
-            category._id !=== updatingCategory._id
-          ));
-          setUpdatingCategory(null);
-       
+          categories.filter((category) => category._id !== updatingCategory._id)
+        );
+        setUpdatingCategory(null);
       }
     } catch (err) {
       console.log(err);
-      toast.error("An error occurred. Please try again.");
+      toast.error("An error occurred. Try again");
     }
   };
+
   return (
     <CategoryContext.Provider
       value={{
@@ -122,6 +140,7 @@ export const CategoryProvider = ({ children }) => {
         setUpdatingCategory,
         createCategory,
         fetchCategories,
+        fetchCategoriesPublic,
         updateCategory,
         deleteCategory,
       }}

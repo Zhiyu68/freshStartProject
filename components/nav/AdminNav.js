@@ -6,8 +6,8 @@ export default function AdminNav() {
       <Link className="nav-link" href="/dashboard/admin">
         Admin
       </Link>
-      <Link className="nav-link" href="/dashboard/admin/catergory">
-        Create Catergpry
+      <Link className="nav-link" href="/dashboard/admin/category">
+        Categories
       </Link>
     </nav>
   );
