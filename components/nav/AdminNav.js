@@ -9,6 +9,9 @@ export default function AdminNav() {
       <Link className="nav-link" href="/dashboard/admin/category">
         Categories
       </Link>
+      <Link className="nav-link" href="/dashboard/admin/tag">
+        Tags
+      </Link>
     </nav>
   );
 }
