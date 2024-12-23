@@ -221,7 +221,7 @@ export default function ProductCreate() {
             />
             <br />
             <div
-              className="text=center pointer"
+              className="text-center pointer"
               onClick={() => deleteImage(img?.public_id)}
             >
               ❌
@@ -230,8 +230,35 @@ export default function ProductCreate() {
         ))}
       </div>
 
+      <div className="d-flex justify-content-between mt-3">
+        <button
+          className={`btn btn-raised btn-${
+            updatingProduct ? "info" : "primary"
+          }`}
+          onClick={(e) => (updatingProduct ? updateProduct() : createProduct())}
+        >
+          {updatingProduct ? "Update" : "Create"}
+        </button>
+        {updatingProduct && (
+          <>
+            <button
+              className="btn btn-danger btn-raised"
+              onClick={() => deleteProduct()}
+            >
+              Delete
+            </button>
+            <button
+              className="btn btn-warning btn-raised"
+              onClick={() => window.location.reload()}
+            >
+              Clear
+            </button>
+          </>
+        )}
+      </div>
+
       <pre>
-        {JSON.stringify(product, null, 4)}
+        {/* {JSON.stringify(product, null, 4)} */}
         {/* {JSON.stringify(tags, null, 4)} */}
       </pre>
     </div>

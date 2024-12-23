@@ -162,8 +162,9 @@ export const ProductProvider = ({ children }) => {
         toast.error(data.err);
       } else {
         toast.success(`Product "${data?.title}" created`);
-        router.push("/dashboard/admin/product");
+        // router.push("/dashboard/admin/product");
         // window.location.reload();
+        window.location.href = "/dashboard/admin/products";
       }
     } catch (err) {
       console.log(err);
@@ -177,6 +178,7 @@ export const ProductProvider = ({ children }) => {
       });
 
       const data = await response.json();
+      // console.log("2222222" + data);
 
       if (!response.ok) {
         toast.error(data?.err);
