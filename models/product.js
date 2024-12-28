@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 import uniqueVakiadtor from "mongoose-unique-validator";
+import Category from "@/models/category";
+import Tag from "@/models/tag";
+import User from "@/models/user";
 
 const likeSchema = new mongoose.Schema(
   {
@@ -109,5 +112,5 @@ const productSchema = new mongoose.Schema(
 
 productSchema.plugin(uniqueVakiadtor, { message: "already exists" });
 
-export default mongoose.models.Product ||
+export default mongoose.models?.Product ||
   mongoose.model("Product", productSchema);

@@ -23,5 +23,5 @@ const categorySchema = new mongoose.Schema(
 
 categorySchema.plugin(uniqueValidator, " is already taken.");
 
-export default mongoose.models.Category ||
+export default mongoose.models?.Category ||
   mongoose.model("Category", categorySchema);
