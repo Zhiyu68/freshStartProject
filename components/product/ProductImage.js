@@ -6,6 +6,20 @@ export default function ProductImage({ product }) {
   const [showImagePreviewModal, setShowImagePreviewModal] = useState(false);
   const [currentImagePreviewUrl, setCurrentImagePreviewUrl] = useState("");
 
+  useEffect(() => {
+    //close modal on clicks on the page
+    window.addEventListener("click", handleClickedOutside);
+    return () => {
+      window.removeEventListener("click", handleClickedOutside);
+    };
+
+    function handleClickedOutside(event) {
+      if (event.target.classList.contains("modal")) {
+        closeModal();
+      }
+    }
+  }, []);
+
   const openModal = (url) => {
     setCurrentImagePreviewUrl(url);
     setShowImagePreviewModal(true);
