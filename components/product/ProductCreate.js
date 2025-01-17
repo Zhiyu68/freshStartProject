@@ -216,6 +216,7 @@ export default function ProductCreate() {
           <div key={img?.public_id}>
             <img
               src={img?.secure_url}
+              alt={img.title || "Image preview"}
               className="img-thumbnail mx-1 shadow"
               style={{ width: "100px", height: "100px", objectFit: "cover" }}
             />

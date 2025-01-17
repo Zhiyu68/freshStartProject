@@ -9,7 +9,11 @@ export default function TopNav() {
   return (
     <nav className="nav shadow p-2 justify-content-between mb-3">
       <Link href="/" className="nav-link">
-        🛒 Fresh Start
+        <img
+          src="/images/websiteNavLOGO.jpg"
+          alt="logo"
+          style={{ height: "40px" }}
+        />
       </Link>
 
       {status === "authenticated" ? (

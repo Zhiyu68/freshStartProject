@@ -45,8 +45,10 @@ export default function ProductList() {
                   height: "100%",
                   width: "100%",
                 }}
+                priority={true}
               />
             </div>
+
             <div className="card-body">
               <h5
                 className="card-title pointer"
