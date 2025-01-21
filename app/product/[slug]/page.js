@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import ProductImage from "@/components/product/ProductImage";
-// import ProductLike from "@/components/product/ProductLike";
+import ProductLike from "@/components/product/ProductLike";
 // import ProductRating from "@/components/product/ProductRating";
 // import UserReviews from "@/components/product/UserReviews";
 // import CouponCode from "@/components/product/CouponCode";
@@ -63,7 +63,7 @@ export default async function ProductViewPage({ params }) {
             <small>Tags: {product?.tags?.map((t) => t?.name).join(" ")}</small>
           </div>
           <div className="card-footer d-flex justify-content-between">
-            {/* <ProductLike product={product} /> */}
+            <ProductLike product={product} />
             <small>Posted {dayjs(product?.createdAt).fromNow()}</small>
           </div>
 
