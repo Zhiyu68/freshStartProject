@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import ProductRating from "./ProductRating";
 
 dayjs.extend(relativeTime);
 
@@ -39,9 +40,9 @@ export default function ProductCard({ product, priority = true }) {
       </div>
 
       <div className="card-footer d-flex justify-content-between">
-        <small>Category: {product?.category?.name || "未分类"}</small>
+        <small>Category: {product?.category?.name || "No Catrgory"}</small>
         <small>
-          Tags: {product?.tags?.map((t) => t?.name).join(", ") || "无标签"}
+          Tags: {product?.tags?.map((t) => t?.name).join(", ") || "No tag"}
         </small>
       </div>
 
@@ -50,9 +51,9 @@ export default function ProductCard({ product, priority = true }) {
         <small>Posted {dayjs(product?.createdAt).fromNow()}</small>
       </div>
 
-      <div className="card-footer d-flex justify-content-between">
-        <small>Brand: {product?.brand || "未知品牌"}</small>
-        <small>⭐️ {product?.ratings?.length || 0} Reviews</small>
+      <div className="card-footer d-flex justify-content-between align-items-center">
+        <small>Brand: {product?.brand || "No brand"}</small>
+        <ProductRating product={product} leaveARating={false} />
       </div>
     </div>
   );

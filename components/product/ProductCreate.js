@@ -219,6 +219,7 @@ export default function ProductCreate() {
               alt={img.title || "Image preview"}
               className="img-thumbnail mx-1 shadow"
               style={{ width: "100px", height: "100px", objectFit: "cover" }}
+              priority={true}
             />
             <br />
             <div
