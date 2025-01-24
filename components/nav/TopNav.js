@@ -8,14 +8,19 @@ export default function TopNav() {
 
   return (
     <nav className="nav shadow p-2 justify-content-between mb-3">
-      <Link href="/" className="nav-link">
-        <img
-          src="/images/websiteNavLOGO.jpg"
-          alt="logo"
-          style={{ height: "40px" }}
-        />
-      </Link>
+      <div className="d-flex">
+        <Link href="/" className="nav-link">
+          <img
+            src="/images/websiteNavLOGO.jpg"
+            alt="logo"
+            style={{ height: "40px" }}
+          />
+        </Link>
 
+        <Link href="/shop" className="nav-link">
+          SHOP
+        </Link>
+      </div>
       {status === "authenticated" ? (
         <div className="d-flex justify-content-end">
           <Link

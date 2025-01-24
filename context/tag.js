@@ -57,6 +57,28 @@ export const TagProvider = ({ children }) => {
     }
   };
 
+  const fetchTagsPublic = async () => {
+    try {
+      const response = await fetch(`${process.env.API}/tags`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        toast.error(data);
+      } else {
+        setTags(data);
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error("Error creating tag");
+    }
+  };
+
   const updateTag = async () => {
     try {
       const response = await fetch(
@@ -132,6 +154,7 @@ export const TagProvider = ({ children }) => {
         setUpdatingTag,
         createTag,
         fetchTags,
+        fetchTagsPublic,
         updateTag,
         deleteTag,
       }}
