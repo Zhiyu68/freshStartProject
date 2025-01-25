@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-// import Step1 from "@/components/cart/Step1";
-// import Step2 from "@/components/cart/Step2";
-// import Step3 from "@/components/cart/Step3";
+import Step1 from "@/components/cart/Step1";
+import Step2 from "@/components/cart/Step2";
+import Step3 from "@/components/cart/Step3";
 import { GoCheckCircleFill } from "react-icons/go";
 import Link from "next/link";
 import { useCart } from "@/context/cart";
@@ -11,10 +11,10 @@ export default function Cart() {
   // context
   const { cartItems } = useCart();
   // state
-  //   const [step, setStep] = useState(1);
+  const [step, setStep] = useState(1);
 
-  //   const handleNextStep = () => setStep(step + 1);
-  //   const handlePrevStep = () => setStep(step - 1);
+  const handleNextStep = () => setStep(step + 1);
+  const handlePrevStep = () => setStep(step - 1);
 
   const tickIcon = (stepNumber) => {
     return step === stepNumber ? (
