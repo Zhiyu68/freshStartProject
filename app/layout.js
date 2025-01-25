@@ -7,6 +7,7 @@ import { SessionProvider } from "next-auth/react";
 import { CategoryProvider } from "@/context/category";
 import { TagProvider } from "@/context/tag";
 import { ProductProvider } from "@/context/product";
+import { CartProvider } from "@/context/cart";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -14,11 +15,13 @@ export default function RootLayout({ children }) {
         <CategoryProvider>
           <TagProvider>
             <ProductProvider>
-              <body>
-                <TopNav />
-                <Toaster />
-                {children}
-              </body>
+              <CartProvider>
+                <body>
+                  <TopNav />
+                  <Toaster />
+                  {children}
+                </body>
+              </CartProvider>
             </ProductProvider>
           </TagProvider>
         </CategoryProvider>
