@@ -29,7 +29,6 @@ export default function ProductFilter({ searchParams }) {
 
   const handleRemoveFilter = (filterName) => {
     const updatedSearchParams = { ...searchParams };
-    // delete updatedSearchParams[filterName];
 
     // if filterName is string
     if (typeof filterName === "string") {
@@ -232,7 +231,7 @@ export default function ProductFilter({ searchParams }) {
         })}
       </div>
 
-      {/* <pre>{JSON.stringify(tags, null, 4)}</pre> */}
+      <pre>{JSON.stringify(tags, null, 4)}</pre>
     </div>
   );
 }

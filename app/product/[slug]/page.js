@@ -3,7 +3,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import ProductImage from "@/components/product/ProductImage";
 import ProductLike from "@/components/product/ProductLike";
 import ProductRating from "@/components/product/ProductRating";
-// import UserReviews from "@/components/product/UserReviews";
+import UserReviews from "@/components/product/UserReviews";
 // import CouponCode from "@/components/product/CouponCode";
 // import AddToCart from "@/components/product/AddToCart";
 
@@ -83,7 +83,7 @@ export default async function ProductViewPage({ params }) {
 
       <div className="row">
         <div className="col-lg-8 offset-lg-2 my-5">
-          {/* <UserReviews reviews={product?.ratings} /> */}
+          <UserReviews reviews={product?.ratings} />
         </div>
       </div>
     </div>

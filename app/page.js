@@ -20,13 +20,13 @@ async function getProducts(searchParams) {
     });
 
     if (!response.ok) {
-      throw new Error("获取产品列表失败");
+      throw new Error("Failed to fetch products");
     }
 
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("获取产品列表错误:", error);
+    console.error("Failed to fetch products:", error);
     throw error;
   }
 }
