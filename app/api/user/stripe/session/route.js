@@ -32,6 +32,7 @@ export async function POST(req) {
         };
       })
     );
+    // console.log("process.env.DOMAIN", process.env.DOMAIN); //http://localhost:3000
 
     const session = await stripe.checkout.sessions.create({
       line_items: lineItems,
@@ -45,6 +46,7 @@ export async function POST(req) {
           userId: user._id,
         },
       },
+
       shipping_options: [{ shipping_rate: process.env.STRIPE_SHIPPING_RATE }],
       shipping_address_collection: {
         allowed_countries: ["GB"],

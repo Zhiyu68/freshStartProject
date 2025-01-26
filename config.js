@@ -1,5 +1,5 @@
 const DB_URI =
-  "mongodb+srv://zhiyuzhong:XVlldaK2u9Od6ELb@cluster0.zvjyu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://zhiyuzhong:v5i4LyG7pWgIMYfH@cluster0.zvjyu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const API =
   process.env.NODE_ENV === "production"
     ? "https://freshstarteshop-r6pq42zvx-zhiyusprojects.vercel.app"
@@ -19,7 +19,8 @@ const STRIPE_SECRET_KEY =
   "sk_test_51QlGtSAKpYQsObFhojhDYlNMHt4FJUUXYHhMlNUE4bLhfC9zzKLHQBlKn5S9r6HQGRCyRzksPB6dwUDw2W67ccjj00h6dUb6Nt";
 const STRIPE_TAX_RATE = "txr_1QlHMAAKpYQsObFhb8RXNO7q";
 const STRIPE_SHIPPING_RATE = "shr_1QlHa3AKpYQsObFhUkJnC4Q1";
-
+const STRIPE_WEBHOOK_SECRET =
+  "whsec_8d94ac7649797aca8a6852abe64865ab8b8962cd23484461427bc867d1b3a5cf";
 const DOMAIN = "http://localhost:3000";
 
 module.exports = {
@@ -36,4 +37,5 @@ module.exports = {
   STRIPE_TAX_RATE,
   DOMAIN,
   STRIPE_SHIPPING_RATE,
+  STRIPE_WEBHOOK_SECRET,
 };
