@@ -5,7 +5,7 @@ const API =
     ? "https://freshstarteshop-7bksljcm8-zhiyusprojects.vercel.app/api"
     : "http://localhost:3000/api";
 
-const NEXTAUTH_SECRET = "5P/Amm0cc7Vl/fKL7ORtYU366Z2wsmvI2sUO2Qo3Tpg=";
+const NEXTAUTH_SECRET = "lz36Kb7mIFlXZPLeLTgKlNnQvjp21jnu7TEDyUD7JnQ=";
 const GOOGLE_CLIENT_ID =
   "917135036277-rcihdhn5hlp6imvmn4ib765lluc29ds9.apps.googleusercontent.com";
 const GOOGLE_CLIENT_SECRET = "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";

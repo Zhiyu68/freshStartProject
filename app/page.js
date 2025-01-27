@@ -59,6 +59,8 @@ export default async function Home({ searchParams }) {
       </div>
     );
   } catch (error) {
-    return <div className="container">加载产品列表时出错: {error.message}</div>;
+    return (
+      <div className="container">11111加载产品列表时出错: {error.message}</div>
+    );
   }
 }
