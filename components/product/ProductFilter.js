@@ -231,7 +231,7 @@ export default function ProductFilter({ searchParams }) {
         })}
       </div>
 
-      <pre>{JSON.stringify(tags, null, 4)}</pre>
+      {/* <pre>{JSON.stringify(tags, null, 4)}</pre> */}
     </div>
   );
 }
