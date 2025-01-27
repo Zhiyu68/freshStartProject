@@ -60,7 +60,7 @@ export default async function Home({ searchParams }) {
     );
   } catch (error) {
     return (
-      <div className="container">11111加载产品列表时出错: {error.message}</div>
+      <div className="container">failed to fetch products: {error.message}</div>
     );
   }
 }
