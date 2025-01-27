@@ -1,4 +1,4 @@
-const DB_URI =
+const MONGODB_URI =
   "mongodb+srv://zhiyuzhong:v5i4LyG7pWgIMYfH@cluster0.zvjyu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const API =
   process.env.NODE_ENV === "production"
@@ -24,7 +24,7 @@ const STRIPE_WEBHOOK_SECRET =
 const DOMAIN = "http://localhost:3000";
 
 module.exports = {
-  DB_URI,
+  MONGODB_URI,
   API,
   NEXTAUTH_SECRET,
   GOOGLE_CLIENT_ID,
