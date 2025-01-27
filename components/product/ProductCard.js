@@ -33,6 +33,11 @@ export default function ProductCard({ product, priority = true }) {
           </h5>
         </Link>
 
+        {product?.previousPrice > product.price && (
+          <h5 className="card-title text-danger">
+            🛍️ <del> £{product?.previousPrice?.toFixed(2)}</del>
+          </h5>
+        )}
         <div
           dangerouslySetInnerHTML={{
             __html:
