@@ -3,7 +3,6 @@ import uniqueVakiadtor from "mongoose-unique-validator";
 import Category from "@/models/category";
 import Tag from "@/models/tag";
 import User from "@/models/user";
-import { type } from "express/lib/response";
 
 // const likeSchema = new mongoose.Schema(
 //   {

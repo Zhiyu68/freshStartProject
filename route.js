@@ -18,12 +18,12 @@ async function getProduct(slug) {
     }
 
     if (!data) {
-      throw new Error("未找到产品数据");
+      throw new Error("failed to find product data");
     }
 
     return data;
   } catch (err) {
-    console.error("获取产品错误:", err);
+    console.error("fetch data fail:", err);
     throw err;
   }
 }
@@ -33,13 +33,14 @@ export async function generateMetadata({ params }) {
     if (!params?.slug) {
       return {
         title: "产品未找到",
-        description: "产品标识符未提供",
+        description: "no description",
       };
     }
     const product = await getProduct(params.slug);
     return {
-      title: product?.title || "产品详情",
-      description: product?.description?.substring(0, 160) || "产品描述",
+      title: product?.title || "product title",
+      description:
+        product?.description?.substring(0, 160) || "product description",
     };
   } catch (error) {
     console.error("生成元数据错误:", error);
