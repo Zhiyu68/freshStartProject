@@ -14,7 +14,7 @@ async function getProduct(slug) {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.err || `获取产品失败: ${response.statusText}`);
+      throw new Error(data.err);
     }
 
     if (!data) {
