@@ -7,7 +7,7 @@ const API =
 
 const NEXTAUTH_SECRET = "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";
 const GOOGLE_CLIENT_ID =
-  "12903816499-e2q926268raohsknlujsfnb4f7sa0a2v.apps.googleusercontent.com";
+  "917135036277-rcihdhn5hlp6imvmn4ib765lluc29ds9.apps.googleusercontent.com";
 const GOOGLE_CLIENT_SECRET = "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";
 
 const CLOUDINARY_CLOUD_NAME = "dp0azmck8";
@@ -24,7 +24,7 @@ const STRIPE_WEBHOOK_SECRET =
   "whsec_8d94ac7649797aca8a6852abe64865ab8b8962cd23484461427bc867d1b3a5cf";
 const DOMAIN =
   process.env.NODE_ENV === "production"
-    ? "https://freshstarteshop.vercel.app/"
+    ? "https://freshstarteshop.vercel.app"
     : "http://localhost:3000";
 
 module.exports = {
