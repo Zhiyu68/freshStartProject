@@ -2,12 +2,12 @@ const MONGODB_URI =
   "mongodb+srv://zhiyuzhong:v5i4LyG7pWgIMYfH@cluster0.zvjyu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const API =
   process.env.NODE_ENV === "production"
-    ? "https://freshstarteshop.vercel.app//api"
+    ? "https://freshstarteshop.vercel.app/api"
     : "http://localhost:3000/api";
 
-const NEXTAUTH_SECRET = "lz36Kb7mIFlXZPLeLTgKlNnQvjp21jnu7TEDyUD7JnQ=";
+const NEXTAUTH_SECRET = "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";
 const GOOGLE_CLIENT_ID =
-  "917135036277-rcihdhn5hlp6imvmn4ib765lluc29ds9.apps.googleusercontent.com";
+  "12903816499-e2q926268raohsknlujsfnb4f7sa0a2v.apps.googleusercontent.com";
 const GOOGLE_CLIENT_SECRET = "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";
 
 const CLOUDINARY_CLOUD_NAME = "dp0azmck8";

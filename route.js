@@ -10,11 +10,10 @@ async function getProduct(slug) {
       method: "GET",
       next: { revalidate: 1 },
     });
-    console.log({"{process.env.API}",process.env.API});
-    
+    console.log("{process.env.API}", process.env.API);
 
     const data = await response.json();
-console.log("data",data);
+    console.log("data", data);
 
     if (!response.ok) {
       throw new Error(data.err);
