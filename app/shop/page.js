@@ -6,6 +6,7 @@ export const dynamic = "force-dynamic";
 
 async function getProducts(searchParams) {
   try {
+    console.log("传递给 getProducts 的 searchParams:", searchParams); // 调试输出
     const searchQuery = new URLSearchParams({
       page: searchParams.page || 1,
       minPrice: searchParams.minPrice || "",
@@ -15,27 +16,35 @@ async function getProducts(searchParams) {
       tag: searchParams.tag || "",
       brand: searchParams.brand || "",
     }).toString();
+    console.log("构建的 searchQuery:", searchQuery); // 调试输出
+    const response = await fetch(
+      `${process.env.API}/product/filters?${searchQuery}`,
+      {
+        method: "GET",
+        next: { revalidate: 1 },
+      }
+    );
+    console.log("shop{process.env.API}", process.env.API);
 
-    const response = await fetch(`${process.env.API}/product?${searchQuery}`, {
-      method: "GET",
-      next: { revalidate: 1 },
-    });
-    console.log("process.env.API", process.env.API);
+    console.log("searchQuery", searchQuery);
 
     if (!response.ok) {
       throw new Error("Failed to fetch products");
     }
 
     const data = await response.json();
+    console.log("获取到的data:", data); // 调试输出
+
     return data;
   } catch (error) {
     console.error("Failed to fetch products:", error);
+
     throw error;
   }
 }
 
 export default async function Shop({ searchParams }) {
-  // console.log("searchParams in shop page => ", searchParams);
+  //   console.log("searchParams in shop page => ", searchParams);
   const { products, currentPage, totalPages } = await getProducts(searchParams);
 
   return (
@@ -45,14 +54,12 @@ export default async function Shop({ searchParams }) {
           <ProductFilter searchParams={searchParams} />
         </div>
         <div className="col-lg-9 overflow-auto" style={{ maxHeight: "90vh" }}>
-          {/* <pre>{JSON.stringify(products, null, 2)}</pre> */}
-
           <h4 className="text-center fw-bold mt-3">Shop Latest products</h4>
 
           <div className="row">
             {products?.map((product) => (
-              <div key={product._id} className="col-lg-4">
-                <ProductCard product={product} priority={true} />
+              <div className="col-lg-4">
+                <ProductCard product={product} />
               </div>
             ))}
           </div>
