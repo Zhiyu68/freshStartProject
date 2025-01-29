@@ -16,7 +16,7 @@ async function getProducts(searchParams) {
       tag: searchParams.tag || "",
       brand: searchParams.brand || "",
     }).toString();
-    console.log("构建的 searchQuery:", searchQuery); // 调试输出
+    // console.log("构建的 searchQuery:", searchQuery); // 调试输出
     const response = await fetch(
       `${process.env.API}/product/filters?${searchQuery}`,
       {
@@ -24,16 +24,16 @@ async function getProducts(searchParams) {
         next: { revalidate: 1 },
       }
     );
-    console.log("shop{process.env.API}", process.env.API);
+    // console.log("shop{process.env.API}", process.env.API);
 
-    console.log("searchQuery", searchQuery);
+    // console.log("searchQuery", searchQuery);
 
     if (!response.ok) {
       throw new Error("Failed to fetch products");
     }
 
     const data = await response.json();
-    console.log("获取到的data:", data); // 调试输出
+    // console.log("获取到的data:", data); // 调试输出
 
     return data;
   } catch (error) {
