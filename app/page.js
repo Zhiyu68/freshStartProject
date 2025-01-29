@@ -27,6 +27,10 @@ async function getProducts(searchParams) {
     return data;
   } catch (error) {
     console.error("Failed to fetch products:", error);
+    console.log("{process.env.API}", process.env.API);
+    console.log("data", data);
+    console.log("searchQuery", searchQuery);
+
     throw error;
   }
 }
