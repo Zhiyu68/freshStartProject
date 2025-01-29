@@ -2,7 +2,7 @@ const MONGODB_URI =
   "mongodb+srv://zhiyuzhong:v5i4LyG7pWgIMYfH@cluster0.zvjyu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const API =
   process.env.NODE_ENV === "production"
-    ? "https://freshstarteshop-7bksljcm8-zhiyusprojects.vercel.app/api"
+    ? "https://freshstarteshop-nrn6dxibu-zhiyusprojects.vercel.app/api"
     : "http://localhost:3000/api";
 
 const NEXTAUTH_SECRET = "lz36Kb7mIFlXZPLeLTgKlNnQvjp21jnu7TEDyUD7JnQ=";
@@ -24,7 +24,7 @@ const STRIPE_WEBHOOK_SECRET =
   "whsec_8d94ac7649797aca8a6852abe64865ab8b8962cd23484461427bc867d1b3a5cf";
 const DOMAIN =
   process.env.NODE_ENV === "production"
-    ? "https://freshstarteshop-7bksljcm8-zhiyusprojects.vercel.app"
+    ? "https://freshstarteshop-nrn6dxibu-zhiyusprojects.vercel.app"
     : "http://localhost:3000";
 
 module.exports = {

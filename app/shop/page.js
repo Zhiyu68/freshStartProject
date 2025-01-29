@@ -20,6 +20,7 @@ async function getProducts(searchParams) {
       method: "GET",
       next: { revalidate: 1 },
     });
+    console.log("process.env.API", process.env.API);
 
     if (!response.ok) {
       throw new Error("Failed to fetch products");
