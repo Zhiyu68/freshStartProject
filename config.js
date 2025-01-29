@@ -24,7 +24,7 @@ const STRIPE_WEBHOOK_SECRET =
   "whsec_8d94ac7649797aca8a6852abe64865ab8b8962cd23484461427bc867d1b3a5cf";
 const DOMAIN =
   process.env.NODE_ENV === "production"
-    ? "https://freshstarteshop-nrn6dxibu-zhiyusprojects.vercel.app"
+    ? "https://freshstarteshop.vercel.app/"
     : "http://localhost:3000";
 
 module.exports = {

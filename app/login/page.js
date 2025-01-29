@@ -5,8 +5,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 
 export default function Login() {
-  const [email, setEmail] = useState("zu2@gmail.com");
-  const [password, setPassword] = useState("zu2");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
