@@ -43,10 +43,26 @@ export default async function ProductViewPage({ params }) {
       <div className="row">
         <div className="col-lg-8 offset-lg-2 card pt-5">
           <h1 className="text-center">{product?.title}</h1>
-          <CouponCode product={product} />
+
+          {/* <CouponCode product={product} /> */}
           {/* show product images in modal */}
           <ProductImage product={product} />
           <div className="card-body">
+            <div className=" text-center">
+              <h3>
+                <strong className="card-title ">
+                  <CouponCode product={product} />
+                  {/* {product?.price?.toFixed(2)} */}
+                </strong>
+              </h3>
+
+              {product?.previousPrice > product.price && (
+                <h4 className=" text-danger">
+                  🛍️ <del> £{product?.previousPrice?.toFixed(2)}</del>
+                </h4>
+              )}
+              <br />
+            </div>
             <div
               dangerouslySetInnerHTML={{
                 __html: product?.description.replace(/\./g, "<br/><br/>"),
