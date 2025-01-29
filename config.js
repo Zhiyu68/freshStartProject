@@ -2,7 +2,7 @@ const MONGODB_URI =
   "mongodb+srv://zhiyuzhong:v5i4LyG7pWgIMYfH@cluster0.zvjyu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const API =
   process.env.NODE_ENV === "production"
-    ? "https://freshstarteshop-nrn6dxibu-zhiyusprojects.vercel.app/api"
+    ? "https://freshstarteshop.vercel.app//api"
     : "http://localhost:3000/api";
 
 const NEXTAUTH_SECRET = "lz36Kb7mIFlXZPLeLTgKlNnQvjp21jnu7TEDyUD7JnQ=";
