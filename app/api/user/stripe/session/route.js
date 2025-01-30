@@ -20,7 +20,7 @@ export async function POST(req) {
         const unitAmount = product.price * 100;
         return {
           price_data: {
-            currency: "gbp",
+            currency: "GBP",
             product_data: {
               name: product.title,
               images: [product.images[0].secure_url],

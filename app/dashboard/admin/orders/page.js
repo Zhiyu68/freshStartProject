@@ -129,7 +129,7 @@ export default function AdminOrders() {
                     <tr>
                       <th scope="row">Total Charged:</th>
                       <td>
-                        ${(order?.amount_captured / 100)?.toFixed(2)}{" "}
+                        £{(order?.amount_captured / 100)?.toFixed(2)}{" "}
                         {order?.currency}
                       </td>
                     </tr>
@@ -162,7 +162,7 @@ export default function AdminOrders() {
                               router.push(`/product/${product?.slug}`)
                             }
                           >
-                            {product?.quantity} x {product?.title} $
+                            {product?.quantity} x {product?.title} £
                             {product?.price?.toFixed(2)} {order?.currency}
                           </div>
                         ))}
