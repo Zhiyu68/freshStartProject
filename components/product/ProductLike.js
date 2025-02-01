@@ -22,7 +22,7 @@ export default function ProductLike({ product }) {
 
     try {
       if (isLiked) {
-        const answer = window.confirm("Are you sure to unlike?");
+        const answer = window.confirm("You liked it. Are you sure to unlike?");
         if (answer) {
           handleUnlike();
         }

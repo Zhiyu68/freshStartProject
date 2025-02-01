@@ -51,13 +51,14 @@ export default function ProductRating({ product, leaveARating = true }) {
   const submitRating = async () => {
     if (status !== "authenticated") {
       toast.error("You must be logged in to leave a rating");
-      router.push(`/login?callbackUrl=${pathname}`);
+      router.push(`/login?callbackUrl=${process.env.DOMAIN}${pathname}`);
       return;
     }
 
     try {
       const response = await fetch(`${process.env.API}/user/product/rating`, {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           productId: product?._id,
           rating: currentRating,
@@ -65,14 +66,20 @@ export default function ProductRating({ product, leaveARating = true }) {
         }),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to leave a rating");
+      if (response.status === 200) {
+        const data = await response.json();
+        setProductRatings(data?.ratings);
+        setShowRatingModal(false);
+        console.log("product rating response => ", data);
+        toast.success("You left a rating");
+        router.refresh(); // only works in server components
+      } else if (response.status === 400) {
+        const errorData = await response.json();
+        toast.error(errorData.err);
+      } else {
+        // Handle other error scenarios
+        toast.error("An error occurred. Please try again later.");
       }
-      const data = await response.json();
-      setProductRatings(data?.ratings);
-      setShowRatingModal(false);
-      toast.success("Thanks for leaving a rating");
-      router.refresh();
     } catch (err) {
       console.log(err);
       toast.error("Error leaving a rating");

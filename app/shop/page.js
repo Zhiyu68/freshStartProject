@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 async function getProducts(searchParams) {
   try {
-    console.log("传递给 getProducts 的 searchParams:", searchParams); // 调试输出
+    // console.log("传递给 getProducts 的 searchParams:", searchParams); // 调试输出
     const searchQuery = new URLSearchParams({
       page: searchParams.page || 1,
       minPrice: searchParams.minPrice || "",

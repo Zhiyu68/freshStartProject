@@ -6,38 +6,45 @@ import ProductRating from "@/components/product/ProductRating";
 import UserReviews from "@/components/product/UserReviews";
 import CouponCode from "@/components/product/CouponCode";
 import AddToCart from "@/components/product/AddToCart";
+import ProductCard from "@/components/product/ProductCard";
+dayjs.extend(relativeTime);
 
 export async function generateMetadata({ params }) {
   const product = await getProduct(params?.slug);
-
+  // console.log("Fetched product:", product); // 👀 确保 `product` 不是 `undefined`
   return {
     title: product?.title,
     description: product?.description?.substring(0, 160),
-    openGraph: {
-      images: product?.images[0]?.secure_url,
-    },
+    // openGraph: {
+    //   images:
+    //     product?.images?.length > 0
+    //       ? product.images[0]?.secure_url
+    //       : "/default.png",
+    // },
   };
 }
 
-dayjs.extend(relativeTime);
-
 async function getProduct(slug) {
-  const response = await fetch(`${process.env.API}/product/${slug}`, {
-    method: "GET",
-    next: { revalidate: 1 },
-  });
+  try {
+    const response = await fetch(`${process.env.API}/product/${slug}`, {
+      method: "GET",
+      next: { revalidate: 1 },
+    });
+    // console.log("respsonse", response);
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch product");
+    if (!response.ok) {
+      throw new Error("111111111Failed to fetch product");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return null;
   }
-
-  const data = await response.json();
-  return data;
 }
 
 export default async function ProductViewPage({ params }) {
-  const product = await getProduct(params?.slug);
-
+  const { product, relatedProducts } = await getProduct(params?.slug);
   return (
     <div className="container my-4">
       <div className="row">
@@ -56,7 +63,7 @@ export default async function ProductViewPage({ params }) {
                 </strong>
               </h3>
 
-              {product?.previousPrice > product.price && (
+              {product?.previousPrice > product?.price && (
                 <h4 className=" text-danger">
                   🛍️ <del> £{product?.previousPrice?.toFixed(2)}</del>
                 </h4>
@@ -65,7 +72,7 @@ export default async function ProductViewPage({ params }) {
             </div>
             <div
               dangerouslySetInnerHTML={{
-                __html: product?.description.replace(/\./g, "<br/><br/>"),
+                __html: product?.description?.replace(/\./g, "<br/><br/>"),
               }}
             />
 
@@ -92,13 +99,19 @@ export default async function ProductViewPage({ params }) {
           </div>
         </div>
       </div>
-
       <div className="row">
-        <div className="col">
-          <h4 className="text-center my-5">Related Products</h4>
+        <div className="col-lg-10 offset-lg-1">
+          <p className="lead text-center my-5">Other products you may like</p>
+          <div className="row">
+            {relatedProducts?.map((product) => (
+              <div className="col-lg-4" key={product._id}>
+                <ProductCard product={product} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-
+      ;
       <div className="row">
         <div className="col-lg-8 offset-lg-2 my-5">
           <UserReviews reviews={product?.ratings} />
