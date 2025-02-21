@@ -25,7 +25,7 @@ export async function POST(req) {
               name: product.title,
               images: [product.images[0].secure_url],
             },
-            unit_amount: unitAmount,
+            unit_amount: Math.round(unitAmount),
           },
           tax_rates: [process.env.STRIPE_TAX_RATE],
           quantity: item.quantity,

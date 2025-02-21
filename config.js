@@ -20,8 +20,7 @@ const STRIPE_SECRET_KEY =
   "sk_test_51QlGtSAKpYQsObFhojhDYlNMHt4FJUUXYHhMlNUE4bLhfC9zzKLHQBlKn5S9r6HQGRCyRzksPB6dwUDw2W67ccjj00h6dUb6Nt";
 const STRIPE_TAX_RATE = "txr_1QlfNTAKpYQsObFhqEqeD37I";
 const STRIPE_SHIPPING_RATE = "shr_1QlHa3AKpYQsObFhUkJnC4Q1";
-const STRIPE_WEBHOOK_SECRET =
-  "whsec_8d94ac7649797aca8a6852abe64865ab8b8962cd23484461427bc867d1b3a5cf";
+const STRIPE_WEBHOOK_SECRET = "whsec_rn1RjYEhpZhNEQsjLilIJRAASSLfKWtt";
 const DOMAIN =
   process.env.NODE_ENV === "production"
     ? "https://freshstarteshop.vercel.app"

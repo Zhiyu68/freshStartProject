@@ -15,7 +15,7 @@ export default function AdminProductReviewsPage() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const page = searchParams.get("page");
-  console.log("current page => ", page);
+  // console.log("current page => ", page);
 
   const router = useRouter();
 

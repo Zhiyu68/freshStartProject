@@ -33,7 +33,7 @@ async function getProduct(slug) {
     // console.log("respsonse", response);
 
     if (!response.ok) {
-      throw new Error("111111111Failed to fetch product");
+      throw new Error("Failed to fetch product");
     }
     const data = await response.json();
     return data;
