@@ -2,6 +2,14 @@
 
 There is the Presentation video link: https://drive.google.com/file/d/1J1z9chdjkQkpQf9WNmiPybioHdB3ZWQs/view?usp=sharing
 
+##  Auto Testing report 1 – Lighthouse
+
+![Lighthouse Screenshot](https://drive.google.com/file/d/1zEa6uxPNPP7uy5qK0YnXvRCwvK_Y5JQp/view?usp=sharing)
+
+
+
+##  Auto Testing report 2 – Lighthouse
+
 
 ## Getting Started
 
