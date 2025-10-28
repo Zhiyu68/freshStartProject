@@ -1,7 +1,7 @@
-## Deployed on Vercel
+## Presentation Video
 
-The project has successfully deployed on Vercel.
-There is the Domains link: https://freshstarteshop.vercel.app
+There is the Presentation video link: https://drive.google.com/file/d/1J1z9chdjkQkpQf9WNmiPybioHdB3ZWQs/view?usp=sharing
+
 
 ## Getting Started
 
