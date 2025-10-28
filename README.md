@@ -5,9 +5,17 @@ There is the Presentation video link: https://drive.google.com/file/d/1J1z9chdjk
 ##  Auto Testing report – Lighthouse
 ![Lighthouse Screenshot](https://drive.google.com/uc?export=view&id=1zEa6uxPNPP7uy5qK0YnXvRCwvK_Y5JQp)
 
+---
 
+## 🌟 Key Features
 
+- Product listings with search and filtering  
+- Secure Stripe payment integration  
+- Customer reviews and content-based product recommendations  
+- Responsive design and accessible UI  
+- CI/CD automated deployment with **Vercel + GitHub**  
 
+---
 ## Getting Started
 
 First, run the development server:
